@@ -2,7 +2,10 @@
 title: "Rep.Research.1_Palvinder"
 author: "Palvinder Kaur"
 date: "3 September 2018"
-output: html_document
+output: 
+  html_document:
+    keep_md: true
+  pdf_document: default
 ---
 
 Load packages
@@ -12,6 +15,7 @@ library(lubridate)
 library(dplyr)
 library(ggplot2)
 library(chron)
+library(tinytex)
 ```
 
 Load and summarize data
@@ -30,7 +34,7 @@ activity.data$date <- as.Date(activity.data$date)
 1: What is the mean total number of steps taken per day?
   
    1.1: Calculate the total number of steps taken per day
-```{r, echo= TRUE}
+```{r, echo=TRUE }
 total.steps.perday <- aggregate(steps ~ date, activity.data, FUN=sum, na.rm=TRUE)
 ```
 
